@@ -63,8 +63,13 @@
       border: none;
     }
 
-    button:hover {
+    button:hover:enabled {
       background-color: #c2185b;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
 
     .checkbox-group {
@@ -135,7 +140,7 @@
         <label><input type="checkbox" name="categoria" value="Todos"> Todos</label>
       </div>
 
-      <button type="submit">Enviar respostas</button>
+      <button type="submit" id="submitBtn">Enviar respostas</button>
     </form>
   </div>
 
@@ -148,9 +153,14 @@
     const form = document.getElementById('meuForm');
     const formContainer = document.getElementById('formContainer');
     const mensagemFinal = document.getElementById('mensagemFinal');
+    const submitBtn = document.getElementById('submitBtn');
 
     form.addEventListener('submit', function(event) {
       event.preventDefault();
+
+      // Desabilita o botão e muda o texto
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Enviando...';
 
       const formData = new FormData(form);
 

@@ -74,22 +74,17 @@
     </select>
 
     <!-- Pergunta 4 -->
-    <label for="categoria">Qual categoria de produto você mais gosta de dar ou receber?</label>
-    <select name="categoria" id="categoria" required>
-      <option value="">Selecione</option>
-      <option value="Cosméticos">Cosméticos</option>
-      <option value="Perfume">Perfume</option>
-      <option value="Chocolates">Chocolates</option>
-      <option value="Smartphone">Smartphone</option>
-      <option value="Secador/Chapinha/Barbeador Elétrico">Secador/Chapinha/Barbeador Elétrico</option>
-      <option value="Linha Stanley">Linha Stanley</option>
-      <option value="Semijoia">Semijoia</option>
-      <option value="Todos">Todos</option>
-    </select>
-
-    <!-- Comentários extras -->
-    <label for="comentarios">Deseja compartilhar algo mais?</label>
-    <textarea name="comentarios" id="comentarios" rows="4" placeholder="Digite aqui..."></textarea>
+<label>Qual categoria de produto você mais gosta de dar ou receber?</label>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Cosméticos"> Cosméticos</label>
+  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Perfume"> Perfume</label>
+  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Chocolates"> Chocolates</label>
+  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Smartphone"> Smartphone</label>
+  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Secador/Chapinha/Barbeador Elétrico"> Secador/Chapinha/Barbeador Elétrico</label>
+  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Linha Stanley"> Linha Stanley</label>
+  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Semijoia"> Semijoia</label>
+  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Todos"> Todos</label>
+</div>
 
     <button type="submit">Enviar respostas</button>
   </form>

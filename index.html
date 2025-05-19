@@ -84,7 +84,7 @@
 
     <h1>Queremos saber sua opinião</h1>
 
-    <form id="meuForm" action="https://script.google.com/macros/s/AKfycbzWNZAJ2JgIHhG3UYBslIBYOt_BIkc1sn84SsLSFQluBSMaogAItwgv4WiELSnNbz1sCQ/exec" method="POST">
+    <form id="meuForm" action="https://script.google.com/macros/s/AKfycbzSxBuLU1psi5rKAH_UJOQ5XyLMpqA_EzEaZ6mrf6cadyNHwqjrGITgprpoFeZW36BEvg/exec" method="POST">
       <!-- Pergunta 1 -->
       <label for="relacionamento">Você está em um relacionamento atualmente?</label>
       <select name="relacionamento" id="relacionamento" required>
@@ -137,7 +137,7 @@
 
     const formData = new FormData(form);
 
-    fetch('https://script.google.com/macros/s/AKfycbzWNZAJ2JgIHhG3UYBslIBYOt_BIkc1sn84SsLSFQluBSMaogAItwgv4WiELSnNbz1sCQ/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzSxBuLU1psi5rKAH_UJOQ5XyLMpqA_EzEaZ6mrf6cadyNHwqjrGITgprpoFeZW36BEvg/exec', {
       method: 'POST',
       body: formData
     })

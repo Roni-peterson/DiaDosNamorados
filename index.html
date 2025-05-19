@@ -46,31 +46,48 @@
 
   <form action="https://script.google.com/macros/s/AKfycbzZnAvzGw0aeVyZJxQ4WnuKkEV5CDjIvhx1v732O_VC5kFkg4u7V5F4c2tdoxzEXfGo/exec" method="POST">
     
-    <label for="relacionamento">Você está em um relacionamento?</label>
+    <!-- Pergunta 1 -->
+    <label for="relacionamento">Você está em um relacionamento atualmente?</label>
     <select name="relacionamento" id="relacionamento" required>
       <option value="">Selecione</option>
       <option value="Sim">Sim</option>
       <option value="Não">Não</option>
-      <option value="É complicado">É complicado</option>
     </select>
 
-    <label for="valor_presente">Qual valor você estaria disposto a gastar com o presente?</label>
+    <!-- Pergunta 2 -->
+    <label for="valor_presente">Qual faixa de valor você gostaria de investir em um presente?</label>
     <select name="valor_presente" id="valor_presente" required>
       <option value="">Selecione</option>
       <option value="Até R$50">Até R$50</option>
-      <option value="R$50 a R$100">R$50 a R$100</option>
-      <option value="R$100 a R$200">R$100 a R$200</option>
-      <option value="Mais de R$200">Mais de R$200</option>
+      <option value="R$51 a R$100">R$51 a R$100</option>
+      <option value="R$101 a R$200">R$101 a R$200</option>
+      <option value="Acima de R$200">Acima de R$200</option>
     </select>
 
-    <label for="embalagem">Você considera a embalagem do presente importante?</label>
+    <!-- Pergunta 3 -->
+    <label for="embalagem">O quanto a embalagem influencia na sua decisão de compra?</label>
     <select name="embalagem" id="embalagem" required>
       <option value="">Selecione</option>
-      <option value="Sim">Sim</option>
-      <option value="Não">Não</option>
-      <option value="Indiferente">Indiferente</option>
+      <option value="Muito – adoro uma embalagem bonita!">Muito – adoro uma embalagem bonita!</option>
+      <option value="Um pouco – se for bonita, melhor.">Um pouco – se for bonita, melhor.</option>
+      <option value="Nada – o que importa é o conteúdo.">Nada – o que importa é o conteúdo.</option>
     </select>
 
+    <!-- Pergunta 4 -->
+    <label for="categoria">Qual categoria de produto você mais gosta de dar ou receber?</label>
+    <select name="categoria" id="categoria" required>
+      <option value="">Selecione</option>
+      <option value="Cosméticos">Cosméticos</option>
+      <option value="Perfume">Perfume</option>
+      <option value="Chocolates">Chocolates</option>
+      <option value="Smartphone">Smartphone</option>
+      <option value="Secador/Chapinha/Barbeador Elétrico">Secador/Chapinha/Barbeador Elétrico</option>
+      <option value="Linha Stanley">Linha Stanley</option>
+      <option value="Semijoia">Semijoia</option>
+      <option value="Todos">Todos</option>
+    </select>
+
+    <!-- Comentários extras -->
     <label for="comentarios">Deseja compartilhar algo mais?</label>
     <textarea name="comentarios" id="comentarios" rows="4" placeholder="Digite aqui..."></textarea>
 

@@ -76,16 +76,38 @@
       flex: 1 1 45%;
       font-weight: normal;
     }
+
+    /* Toast personalizado */
+    .toast {
+      visibility: hidden;
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      min-width: 250px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.4s ease, visibility 0.4s;
+      z-index: 9999;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      font-weight: bold;
+    }
+
+    .toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
   <div class="form-container">
     <img class="logo" src="https://www.dropbox.com/scl/fi/6w6f4g6iqperdc1qxu4ku/Design-sem-nome-7.png?rlkey=2luuewrbz5k04qofc8ghy8jv6&st=vgn7v9a1&raw=1" alt="Logo">
-
     <h1>Queremos saber sua opinião</h1>
 
     <form id="meuForm" action="https://script.google.com/macros/s/AKfycbzSxBuLU1psi5rKAH_UJOQ5XyLMpqA_EzEaZ6mrf6cadyNHwqjrGITgprpoFeZW36BEvg/exec" method="POST">
-      <!-- Pergunta 1 -->
       <label for="relacionamento">Você está em um relacionamento atualmente?</label>
       <select name="relacionamento" id="relacionamento" required>
         <option value="">Selecione</option>
@@ -93,7 +115,6 @@
         <option value="Não">Não</option>
       </select>
 
-      <!-- Pergunta 2 -->
       <label for="valor_presente">Qual faixa de valor você gostaria de investir em um presente?</label>
       <select name="valor_presente" id="valor_presente" required>
         <option value="">Selecione</option>
@@ -103,7 +124,6 @@
         <option value="Acima de R$200">Acima de R$200</option>
       </select>
 
-      <!-- Pergunta 3 -->
       <label for="embalagem">O quanto a embalagem influencia na sua decisão de compra?</label>
       <select name="embalagem" id="embalagem" required>
         <option value="">Selecione</option>
@@ -112,7 +132,6 @@
         <option value="Nada – o que importa é o conteúdo.">Nada – o que importa é o conteúdo.</option>
       </select>
 
-      <!-- Pergunta 4 -->
       <label>Qual categoria de produto você mais gosta de dar ou receber?</label>
       <div class="checkbox-group">
         <label><input type="checkbox" name="categoria" value="Cosméticos"> Cosméticos</label>
@@ -128,28 +147,43 @@
       <button type="submit">Enviar respostas</button>
     </form>
   </div>
-</body>
-<script>
-  const form = document.getElementById('meuForm');
 
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // evita o envio tradicional
+  <!-- Toast invisível no início -->
+  <div id="toast" class="toast"></div>
 
-    const formData = new FormData(form);
+  <script>
+    const form = document.getElementById('meuForm');
+    const toast = document.getElementById('toast');
 
-    fetch('https://script.google.com/macros/s/AKfycbzSxBuLU1psi5rKAH_UJOQ5XyLMpqA_EzEaZ6mrf6cadyNHwqjrGITgprpoFeZW36BEvg/exec', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      // Mostra uma mensagem estilizada
-      alert(data.message); // aqui você pode criar um modal ou toast estilizado no lugar do alert
-      location.reload();
-    })
-    .catch(error => {
-      alert('Erro ao enviar: ' + error.message);
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+        location.reload(); // recarrega após mostrar o toast
+      }, 3000);
+    }
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        showToast("Obrigado pelas informações! 💖");
+        form.reset();
+      })
+      .catch(error => {
+        showToast("Erro ao enviar. Tente novamente.");
+        console.error("Erro:", error);
+      });
     });
-  });
-</script>
+  </script>
+</body>
 </html>

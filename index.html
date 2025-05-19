@@ -145,6 +145,7 @@
     .then(data => {
       // Mostra uma mensagem estilizada
       alert(data.message); // aqui você pode criar um modal ou toast estilizado no lugar do alert
+      location.reload();
     })
     .catch(error => {
       alert('Erro ao enviar: ' + error.message);

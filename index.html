@@ -7,86 +7,127 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 1rem;
       background-color: #f5f5f5;
+      margin: 0;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
     }
+
+    .form-container {
+      max-width: 600px;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 1rem;
+      max-width: 200px;
+    }
+
     h1 {
       text-align: center;
       color: #e91e63;
+      margin-bottom: 2rem;
     }
+
     label {
       display: block;
-      margin: 1rem 0 0.3rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.3rem;
       font-weight: bold;
+      color: #333;
     }
+
     select, textarea, input[type="text"], button {
       width: 100%;
-      padding: 0.5rem;
+      padding: 0.6rem;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 6px;
       box-sizing: border-box;
+      font-size: 1rem;
     }
+
     button {
       background-color: #e91e63;
       color: white;
-      font-size: 1rem;
-      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      margin-top: 2rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      border: none;
     }
+
     button:hover {
       background-color: #c2185b;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-group label {
+      flex: 1 1 45%;
+      font-weight: normal;
     }
   </style>
 </head>
 <body>
-  <h1>Campanha Dia dos Namorados 💖</h1>
+  <div class="form-container">
+    <img class="logo" src="https://www.dropbox.com/scl/fi/6w6f4g6iqperdc1qxu4ku/Design-sem-nome-7.png?rlkey=2luuewrbz5k04qofc8ghy8jv6&st=vgn7v9a1&raw=1" alt="Logo">
 
-  <form action="https://script.google.com/macros/s/AKfycbzZnAvzGw0aeVyZJxQ4WnuKkEV5CDjIvhx1v732O_VC5kFkg4u7V5F4c2tdoxzEXfGo/exec" method="POST">
-    
-    <!-- Pergunta 1 -->
-    <label for="relacionamento">Você está em um relacionamento atualmente?</label>
-    <select name="relacionamento" id="relacionamento" required>
-      <option value="">Selecione</option>
-      <option value="Sim">Sim</option>
-      <option value="Não">Não</option>
-    </select>
+    <h1>Queremos saber sua opinião</h1>
 
-    <!-- Pergunta 2 -->
-    <label for="valor_presente">Qual faixa de valor você gostaria de investir em um presente?</label>
-    <select name="valor_presente" id="valor_presente" required>
-      <option value="">Selecione</option>
-      <option value="Até R$50">Até R$50</option>
-      <option value="R$51 a R$100">R$51 a R$100</option>
-      <option value="R$101 a R$200">R$101 a R$200</option>
-      <option value="Acima de R$200">Acima de R$200</option>
-    </select>
+    <form action="https://script.google.com/macros/s/AKfycbzZnAvzGw0aeVyZJxQ4WnuKkEV5CDjIvhx1v732O_VC5kFkg4u7V5F4c2tdoxzEXfGo/exec" method="POST">
+      
+      <!-- Pergunta 1 -->
+      <label for="relacionamento">Você está em um relacionamento atualmente?</label>
+      <select name="relacionamento" id="relacionamento" required>
+        <option value="">Selecione</option>
+        <option value="Sim">Sim</option>
+        <option value="Não">Não</option>
+      </select>
 
-    <!-- Pergunta 3 -->
-    <label for="embalagem">O quanto a embalagem influencia na sua decisão de compra?</label>
-    <select name="embalagem" id="embalagem" required>
-      <option value="">Selecione</option>
-      <option value="Muito – adoro uma embalagem bonita!">Muito – adoro uma embalagem bonita!</option>
-      <option value="Um pouco – se for bonita, melhor.">Um pouco – se for bonita, melhor.</option>
-      <option value="Nada – o que importa é o conteúdo.">Nada – o que importa é o conteúdo.</option>
-    </select>
+      <!-- Pergunta 2 -->
+      <label for="valor_presente">Qual faixa de valor você gostaria de investir em um presente?</label>
+      <select name="valor_presente" id="valor_presente" required>
+        <option value="">Selecione</option>
+        <option value="Até R$50">Até R$50</option>
+        <option value="R$51 a R$100">R$51 a R$100</option>
+        <option value="R$101 a R$200">R$101 a R$200</option>
+        <option value="Acima de R$200">Acima de R$200</option>
+      </select>
 
-    <!-- Pergunta 4 -->
-<label>Qual categoria de produto você mais gosta de dar ou receber?</label>
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Cosméticos"> Cosméticos</label>
-  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Perfume"> Perfume</label>
-  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Chocolates"> Chocolates</label>
-  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Smartphone"> Smartphone</label>
-  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Secador/Chapinha/Barbeador Elétrico"> Secador/Chapinha/Barbeador Elétrico</label>
-  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Linha Stanley"> Linha Stanley</label>
-  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Semijoia"> Semijoia</label>
-  <label style="flex: 1 1 45%;"><input type="checkbox" name="categoria[]" value="Todos"> Todos</label>
-</div>
+      <!-- Pergunta 3 -->
+      <label for="embalagem">O quanto a embalagem influencia na sua decisão de compra?</label>
+      <select name="embalagem" id="embalagem" required>
+        <option value="">Selecione</option>
+        <option value="Muito – adoro uma embalagem bonita!">Muito – adoro uma embalagem bonita!</option>
+        <option value="Um pouco – se for bonita, melhor.">Um pouco – se for bonita, melhor.</option>
+        <option value="Nada – o que importa é o conteúdo.">Nada – o que importa é o conteúdo.</option>
+      </select>
 
-    <button type="submit">Enviar respostas</button>
-  </form>
+      <!-- Pergunta 4 -->
+      <label>Qual categoria de produto você mais gosta de dar ou receber?</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="categoria[]" value="Cosméticos"> Cosméticos</label>
+        <label><input type="checkbox" name="categoria[]" value="Perfume"> Perfume</label>
+        <label><input type="checkbox" name="categoria[]" value="Chocolates"> Chocolates</label>
+        <label><input type="checkbox" name="categoria[]" value="Smartphone"> Smartphone</label>
+        <label><input type="checkbox" name="categoria[]" value="Secador/Chapinha/Barbeador Elétrico"> Secador/Chapinha/Barbeador Elétrico</label>
+        <label><input type="checkbox" name="categoria[]" value="Linha Stanley"> Linha Stanley</label>
+        <label><input type="checkbox" name="categoria[]" value="Semijoia"> Semijoia</label>
+        <label><input type="checkbox" name="categoria[]" value="Todos"> Todos</label>
+      </div>
+
+      <button type="submit">Enviar respostas</button>
+    </form>
+  </div>
 </body>
 </html>

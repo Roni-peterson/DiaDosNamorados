@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário - Dia dos Namorados</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      text-align: center;
+      color: #e91e63;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.3rem;
+      font-weight: bold;
+    }
+    select, textarea, input[type="text"], button {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #e91e63;
+      color: white;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #c2185b;
+    }
+  </style>
+</head>
+<body>
+  <h1>Campanha Dia dos Namorados 💖</h1>
+
+  <form action="https://script.google.com/macros/s/AKfycbzZnAvzGw0aeVyZJxQ4WnuKkEV5CDjIvhx1v732O_VC5kFkg4u7V5F4c2tdoxzEXfGo/exec" method="POST">
+    
+    <label for="relacionamento">Você está em um relacionamento?</label>
+    <select name="relacionamento" id="relacionamento" required>
+      <option value="">Selecione</option>
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+      <option value="É complicado">É complicado</option>
+    </select>
+
+    <label for="valor_presente">Qual valor você estaria disposto a gastar com o presente?</label>
+    <select name="valor_presente" id="valor_presente" required>
+      <option value="">Selecione</option>
+      <option value="Até R$50">Até R$50</option>
+      <option value="R$50 a R$100">R$50 a R$100</option>
+      <option value="R$100 a R$200">R$100 a R$200</option>
+      <option value="Mais de R$200">Mais de R$200</option>
+    </select>
+
+    <label for="embalagem">Você considera a embalagem do presente importante?</label>
+    <select name="embalagem" id="embalagem" required>
+      <option value="">Selecione</option>
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+      <option value="Indiferente">Indiferente</option>
+    </select>
+
+    <label for="comentarios">Deseja compartilhar algo mais?</label>
+    <textarea name="comentarios" id="comentarios" rows="4" placeholder="Digite aqui..."></textarea>
+
+    <button type="submit">Enviar respostas</button>
+  </form>
+</body>
+</html>

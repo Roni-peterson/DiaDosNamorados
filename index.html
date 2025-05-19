@@ -12,6 +12,8 @@
       padding: 2rem 1rem;
       display: flex;
       justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
     .form-container {
@@ -77,34 +79,23 @@
       font-weight: normal;
     }
 
-    /* Toast personalizado */
-    .toast {
-      visibility: hidden;
-      background-color: #4CAF50;
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 6px;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      min-width: 250px;
+    .mensagem-final {
       text-align: center;
-      opacity: 0;
-      transition: opacity 0.4s ease, visibility 0.4s;
-      z-index: 9999;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      font-weight: bold;
-    }
-
-    .toast.show {
-      visibility: visible;
-      opacity: 1;
+      color: #333;
+      font-size: 1.4rem;
+      background-color: #fff;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: auto;
     }
   </style>
 </head>
 <body>
-  <div class="form-container">
+  <div class="form-container" id="formContainer">
     <img class="logo" src="https://www.dropbox.com/scl/fi/6w6f4g6iqperdc1qxu4ku/Design-sem-nome-7.png?rlkey=2luuewrbz5k04qofc8ghy8jv6&st=vgn7v9a1&raw=1" alt="Logo">
+
     <h1>Queremos saber sua opinião</h1>
 
     <form id="meuForm" action="https://script.google.com/macros/s/AKfycbzSxBuLU1psi5rKAH_UJOQ5XyLMpqA_EzEaZ6mrf6cadyNHwqjrGITgprpoFeZW36BEvg/exec" method="POST">
@@ -148,22 +139,15 @@
     </form>
   </div>
 
-  <!-- Toast invisível no início -->
-  <div id="toast" class="toast"></div>
+  <div id="mensagemFinal" class="mensagem-final" style="display: none;">
+    <h2>Obrigado por participar!</h2>
+    <p>Suas respostas foram registradas com sucesso. 💖</p>
+  </div>
 
   <script>
     const form = document.getElementById('meuForm');
-    const toast = document.getElementById('toast');
-
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add('show');
-
-      setTimeout(() => {
-        toast.classList.remove('show');
-        location.reload(); // recarrega após mostrar o toast
-      }, 3000);
-    }
+    const formContainer = document.getElementById('formContainer');
+    const mensagemFinal = document.getElementById('mensagemFinal');
 
     form.addEventListener('submit', function(event) {
       event.preventDefault();
@@ -176,12 +160,12 @@
       })
       .then(response => response.json())
       .then(data => {
-        showToast("Obrigado pelas informações! 💖");
-        form.reset();
+        formContainer.style.display = 'none';
+        mensagemFinal.style.display = 'block';
+        document.body.style.backgroundColor = "#ffffff"; // fundo branco
       })
       .catch(error => {
-        showToast("Erro ao enviar. Tente novamente.");
-        console.error("Erro:", error);
+        formContainer.innerHTML = `<p style="color:red; text-align:center;">Erro ao enviar: ${error.message}</p>`;
       });
     });
   </script>
